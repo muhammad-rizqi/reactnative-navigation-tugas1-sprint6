@@ -37,11 +37,10 @@ export const styles = StyleSheet.create({
   todoItem: {
     flexDirection: 'row',
     backgroundColor: 'cyan',
-    height: 32,
     alignItems: 'center',
     borderRadius: 10,
     marginVertical: 8,
-    height: 40,
+    // height: 40,
     padding: 8,
   },
   smallIcon: {
@@ -49,5 +48,22 @@ export const styles = StyleSheet.create({
     height: 20,
     margin: 4,
     tintColor: '#444',
+  },
+  modalContainer: {
+    backgroundColor: 'white',
+    width: 300,
+    padding: 16,
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: '#2196F3',
+  },
+  modalClose: {
+    backgroundColor: '#f66',
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'flex-end',
   },
 });

@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
+  Alert,
+  Modal,
 } from 'react-native';
 import {styles} from '../../styles/styles';
 
@@ -29,6 +31,8 @@ export class TodoArray extends Component {
           checked: false,
         },
       ],
+      selectedIndex: 0,
+      showModal: false,
     };
   }
 
@@ -59,7 +63,24 @@ export class TodoArray extends Component {
     });
   }
 
+  updateTodo(text) {
+    const {todos, selectedIndex} = this.state;
+    this.setState({
+      todos: todos.map((todo, index) => {
+        return {
+          title: index != selectedIndex ? todo.title : text,
+          checked: todo.chcked,
+        };
+      }),
+    });
+  }
+  showModal(id) {
+    this.setState({selectedIndex: id, showModal: true});
+  }
+
   render() {
+    const {todos, selectedIndex, showModal} = this.state;
+    const str = Object.create(todos[selectedIndex]);
     return (
       <View style={styles.container}>
         <Text>Todo Array</Text>
@@ -75,11 +96,30 @@ export class TodoArray extends Component {
             <Text>+</Text>
           </TouchableOpacity>
         </View>
-
+        <Modal animationType="slide" transparent={true} visible={showModal}>
+          <View style={{margin: 64}}>
+            <View style={styles.modalContainer}>
+              <TouchableOpacity
+                onPress={() => this.setState({showModal: false})}
+                style={styles.modalClose}>
+                <Text>X</Text>
+              </TouchableOpacity>
+              <Text>Update Todo</Text>
+              <TextInput
+                onChangeText={(text) => this.updateTodo(text)}
+                value={str.title}
+                style={styles.textInput}
+              />
+            </View>
+          </View>
+        </Modal>
         <ScrollView>
-          {this.state.todos.map((todo, index) => (
+          {todos.map((todo, index) => (
             <View style={styles.todoItem} key={index}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.showModal(index);
+                }}>
                 <Image
                   source={require('../../assets/icon/underline-button.png')}
                   style={styles.smallIcon}

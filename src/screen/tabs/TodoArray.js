@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ScrollView,
 } from 'react-native';
 import {styles} from '../../styles/styles';
 
@@ -57,6 +58,7 @@ export class TodoArray extends Component {
       }),
     });
   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -74,7 +76,7 @@ export class TodoArray extends Component {
           </TouchableOpacity>
         </View>
 
-        <View>
+        <ScrollView>
           {this.state.todos.map((todo, index) => (
             <View style={styles.todoItem} key={index}>
               <TouchableOpacity>
@@ -108,7 +110,7 @@ export class TodoArray extends Component {
               </TouchableOpacity>
             </View>
           ))}
-        </View>
+        </ScrollView>
       </View>
     );
   }

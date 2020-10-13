@@ -9,7 +9,7 @@ class Home extends Component {
       <View style={styles.containerCenter}>
         <Text>This is home page</Text>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('WhatsApp')}
+          onPress={() => this.props.navigation.navigate('Todo')}
           style={styles.button}>
           <Text>Buka WhatsApp</Text>
         </TouchableOpacity>

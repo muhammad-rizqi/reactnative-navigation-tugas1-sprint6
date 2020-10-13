@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {NavigationContainer} from '@react-navigation/native';
-import Chat from '../screen/tabs/Chat';
-import Call from '../screen/tabs/Call';
-import Status from '../screen/tabs/Status';
+import TodoAPI from '../screen/tabs/TodoAPI';
+import TodoAsync from '../screen/tabs/TodoAsync';
+import TodoArray from '../screen/tabs/TodoArray';
 
 const Tabs = createMaterialTopTabNavigator();
 
@@ -11,9 +10,9 @@ class TopTabs extends Component {
   render() {
     return (
       <Tabs.Navigator>
-        <Tabs.Screen name="Chat" component={Chat} />
-        <Tabs.Screen name="Status" component={Status} />
-        <Tabs.Screen name="Call" component={Call} />
+        <Tabs.Screen name="Array" component={TodoArray} />
+        <Tabs.Screen name="Async" component={TodoAsync} />
+        <Tabs.Screen name="API" component={TodoAPI} />
       </Tabs.Navigator>
     );
   }

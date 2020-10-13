@@ -2,12 +2,12 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {styles} from '../../styles/styles';
 
-const Chat = () => {
+const TodoAsync = () => {
   return (
     <View style={styles.container}>
-      <Text>Chat </Text>
+      <Text>Todo Async</Text>
     </View>
   );
 };
 
-export default Chat;
+export default TodoAsync;

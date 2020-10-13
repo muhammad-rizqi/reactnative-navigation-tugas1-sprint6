@@ -14,7 +14,7 @@ const AppStack = () => {
         component={Home}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="WhatsApp" component={TopTabs} />
+      <Stack.Screen name="Todo" component={TopTabs} />
     </Stack.Navigator>
   );
 };

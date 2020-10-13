@@ -2,12 +2,12 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {styles} from '../../styles/styles';
 
-const Call = () => {
+const TodoAPI = () => {
   return (
     <View style={styles.container}>
-      <Text>Call </Text>
+      <Text>Todo API</Text>
     </View>
   );
 };
 
-export default Call;
+export default TodoAPI;
